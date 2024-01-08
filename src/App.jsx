@@ -1,5 +1,6 @@
 import { useState } from "react";
 import text from "./data"; 
+import { nanoid } from 'nanoid';
 
 const App = () => {
   const [countState, setCountState] = useState(1)
@@ -9,8 +10,7 @@ const App = () => {
     e.preventDefault();
     setTextState(text.filter((txt, idx) => idx < countState));
     // Setting TextState using slice (a Faster way to get new array)
-    // setTextState(text.slice(0, parseInt(countState)));
-    console.log(textState);
+    // setTextState(text.slice(0, parseInt(countState)));    
   }
   return (
     <main>
@@ -23,7 +23,7 @@ const App = () => {
       </form>
 
       <article>
-        {textState.map(txt => <p>{txt}</p>)}
+        {textState.map(txt => <p key={nanoid()}>{txt}</p>)}
       </article>
   </main>
   );

@@ -13,19 +13,19 @@ const App = () => {
     // setTextState(text.slice(0, parseInt(countState)));    
   }
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="number" min={1} max={8} step={1} value={countState} onChange={(e) => {setCountState(e.target.value)}} />
+    <section className="section-center">
+      <form className="lorem-form" onSubmit={handleSubmit}>
+        <label htmlFor="amount">
+          paragraphs:
+          <input type="number" name='amount' id="amount" min={1} max={8} step={1} value={countState} onChange={(e) => {setCountState(e.target.value)}} />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="btn"/>
       </form>
 
-      <article>
+      <article className="lorem-text">
         {textState.map(txt => <p key={nanoid()}>{txt}</p>)}
       </article>
-  </main>
+  </section>
   );
 };
 
